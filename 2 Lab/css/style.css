@@ -1,0 +1,294 @@
+/* Общие сбросы и базовые стили документа */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #e9ecef;
+    color: #212529;
+}
+
+/* Стилизация шапки сайта с использованием flexbox */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #212529;
+    color: #f8f9fa;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 4px solid #ffc107;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #ffc107;
+}
+
+/* Применяется соседний селектор для настройки отступов меню */
+.logo + .menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+    color: #ffc107;
+}
+
+/* Задается трехколонная сетка для десктопной версии */
+.main-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    gap: 25px;
+    padding: 30px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Оформление боковой рекламы */
+.side-ads {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ad-card {
+    background: #fff;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.ad-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+/* Настройка центрального контента как flex-контейнера для разделения секций */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Базовый стиль для каждой карточки в центральной колонке */
+.content-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+/* Стилизация блока покупки */
+.hero-block {
+    text-align: center;
+    background: linear-gradient(135deg, #fff, #f8f9fa);
+    border-top: 6px solid #ffc107;
+}
+
+.hero-block > h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #212529;
+}
+
+.order-btn {
+    margin-top: 20px;
+    padding: 15px 35px;
+    background: #ffc107;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    box-shadow: 4px 4px 0 #343a40;
+    transition: transform 0.1s;
+}
+
+.order-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0 #343a40;
+}
+
+/* Стилизация списка причин */
+.reasons-list {
+    border-top: 6px solid #dc3545;
+}
+
+.reasons-list h2 {
+    margin-bottom: 20px;
+    color: #dc3545;
+}
+
+.reason-box {
+    padding: 20px;
+    border-left: 5px solid #dc3545;
+    background: #f8f9fa;
+    margin-bottom: 15px;
+    border-radius: 0 8px 8px 0;
+}
+
+.reason-box:last-child {
+    margin-bottom: 0;
+}
+
+/* Применяется псевдокласс для чередования фона четных элементов списка */
+.reason-box:nth-child(even) {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-left: 5px solid #dc3545;
+}
+
+/* Стилизация раздела с подарком */
+.bonus-block {
+    border: 4px dashed #28a745;
+    background: #f0fdf4;
+    text-align: center;
+    position: relative;
+}
+
+.bonus-tag {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background: #dc3545;
+    color: #fff;
+    padding: 5px 15px;
+    font-weight: bold;
+    border-radius: 4px;
+    transform: rotate(5deg);
+}
+
+.bonus-block h3 {
+    color: #28a745;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* Стилизация секции отзывов */
+.user-reviews {
+    border-top: 6px solid #0dcaf0;
+}
+
+.user-reviews h2 {
+    margin-bottom: 20px;
+}
+
+.flex-reviews {
+    display: flex;
+    gap: 20px;
+}
+
+.rev {
+    flex: 1;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    font-style: italic;
+    font-size: 0.95rem;
+    border: 1px solid #dee2e6;
+    position: relative;
+}
+
+/* Добавляется псевдоэлемент для отображения декоративных кавычек */
+.rev::before {
+    content: "«";
+    font-size: 4rem;
+    color: #0dcaf0;
+    position: absolute;
+    top: -20px;
+    left: 5px;
+    opacity: 0.3;
+}
+
+.rev cite {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-style: normal;
+    text-align: right;
+    color: #495057;
+}
+
+/* Адаптация сетки для планшетов с отключением правой колонки */
+@media (max-width: 1024px) {
+    .main-layout {
+        grid-template-columns: 200px 1fr;
+    }
+    .right-ads {
+        display: none;
+    }
+}
+
+/* Адаптация макета для мобильных устройств с перестроением в одну колонку */
+@media (max-width: 768px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+    .left-ads {
+        order: 3;
+    }
+    .main-content {
+        order: 1;
+        gap: 30px;
+    }
+    .top-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    .logo + .menu {
+        margin-top: 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .flex-reviews {
+        flex-direction: column;
+    }
+}
+
+/* Адаптация шрифтов и отступов для экранов шириной до 320px */
+@media (max-width: 320px) {
+    body {
+        font-size: 14px;
+    }
+    .hero-block > h1 {
+        font-size: 1.8rem;
+    }
+    .content-card {
+        padding: 15px;
+    }
+    .order-btn {
+        font-size: 1rem;
+        width: 100%;
+        padding: 15px 10px;
+    }
+}
+
+/* Оформление подвала сайта */
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    background: #212529;
+    color: #adb5bd;
+    font-size: 0.8rem;
+    margin-top: 50px;
+}
