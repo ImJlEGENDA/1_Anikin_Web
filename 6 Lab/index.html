@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инфо-Табло</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">📊 Инфо-Табло</a>
+            <div class="navbar-nav flex-row gap-3">
+                <a class="nav-link active tab-btn" href="#" data-target="weather">⛅ Погода</a>
+                <a class="nav-link tab-btn" href="#" data-target="market">📈 Рынок</a>
+                <a class="nav-link tab-btn" href="#" data-target="notes">📝 Заметки</a> 
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+
+        <section id="weather" class="tab-content active-tab">
+            <h2 class="mb-4">Прогноз погоды</h2>
+            <div class="card shadow-sm border-0 col-md-6">
+                <div class="card-body">
+                    <div class="input-group mb-3">
+                        <input type="text" id="city-input" class="form-control" placeholder="Введите город (например, Moscow)" value="Moscow">
+                        <button class="btn btn-primary" id="btn-weather">Узнать погоду</button>
+                    </div>
+                    <div id="weather-result" class="text-center mt-4">
+                        <p class="text-muted">Нажмите кнопку, чтобы загрузить данные...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="market" class="tab-content">
+            <h2 class="mb-4">Курс Криптовалют</h2>
+            <button class="btn btn-success mb-3" id="btn-market">Обновить курсы</button>
+            <div class="row" id="market-result">
+                <p class="text-muted ms-2">Нажмите кнопку для загрузки...</p>
+            </div>
+        </section>
+
+        <section id="notes" class="tab-content">
+            <h2 class="mb-4">Управление заметками</h2>
+            
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Добавить новую заметку</h5>
+                    <input type="text" id="note-title" class="form-control mb-2" placeholder="Название заметки...">
+                    <textarea id="note-body" class="form-control mb-3" rows="2" placeholder="Текст заметки..."></textarea>
+                    <button class="btn btn-primary w-100" id="btn-add-note">Создать заметку</button>
+                </div>
+            </div>
+
+            <h4 class="mb-3">Список заметок</h4>
+            <div class="text-center" id="notes-loading" style="display: none;">
+                <div class="spinner-border text-primary" role="status"></div>
+                <p>Загрузка...</p>
+            </div>
+            
+            <ul class="list-group shadow-sm" id="notes-list">
+                </ul>
+        </section>
+
+    </div>
+
+    <script defer src="js/app.js"></script>
+</body>
+</html>
